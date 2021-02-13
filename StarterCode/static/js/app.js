@@ -1,4 +1,7 @@
 // from data.js
-var tableData = data;
+let tableData = data;
 
 // YOUR CODE HERE!
+let dateTime = tableData.map(i=> i.datetime);
+console.log(dateTime);
+
