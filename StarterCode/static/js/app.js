@@ -7,7 +7,14 @@ let state = tableData.map(i => i.state);
 let country = tableData.map(i => i.country);
 let shape = tableData.map(i => i.shape);
 let time = tableData.map(i => i.durationMinutes);
-let comments = tableData.map(i => i.comments)
+let comments = tableData.map(i => i.comments);
 
-//log data to test code
-console.log(shape)
+d3.select('#filter-btn').on('click', insertTable);
+d3.select('form').on('submit', insertTable)
+
+
+function insertTable() {
+    d3.event.preventDefault();
+    let submitDate = d3.select('#datetime').node().value;
+    console.log(submitDate)
+}
