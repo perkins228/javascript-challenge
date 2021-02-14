@@ -2,7 +2,8 @@
 let tableData = data;
 
 function insertTable() {
-    // d3.event.preventDefault();
+    d3.event.preventDefault();
+    clearTable();
     let submitDate = d3.select('#datetime').node().value;
     d3.select('#datetime').node().value = null;
     let table = d3.select('#ufo-table')
@@ -27,7 +28,13 @@ function insertTable() {
         trow.append("td").text(comments[i]);
 
     }
+
 }
+
+function clearTable() {
+    tbody.remove();
+}
+
 
 d3.select('#filter-btn').on('click', insertTable);
 d3.select('form').on('submit', insertTable)
