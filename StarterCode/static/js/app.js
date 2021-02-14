@@ -1,14 +1,12 @@
 // from data.js
 let tableData = data;
+let tbody = d3.select('tbody');
 
 function insertTable() {
     d3.event.preventDefault();
-    clearTable();
+    tbody.html("");
     let submitDate = d3.select('#datetime').node().value;
     d3.select('#datetime').node().value = null;
-    let table = d3.select('#ufo-table')
-    let tbody = table.select('tbody');
-    let trow
     let filteredData = tableData.filter(i => i.datetime === submitDate)
     let dateTime = filteredData.map(i => i.datetime);
     let city = filteredData.map(i => i.city);
@@ -30,11 +28,6 @@ function insertTable() {
     }
 
 }
-
-function clearTable() {
-    tbody.remove();
-}
-
 
 d3.select('#filter-btn').on('click', insertTable);
 d3.select('form').on('submit', insertTable)
